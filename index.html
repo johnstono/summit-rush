@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#061525" />
+  <meta name="description" content="Summit Rush is a fast, polished skiing and snowboarding browser game." />
+  <title>Summit Rush | Ski & Snowboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game" aria-label="Summit Rush game area"></canvas>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Summit Rush home">
+        <span class="brand-mark">▲</span><span>SUMMIT <b>RUSH</b></span>
+      </a>
+      <div class="top-actions">
+        <button id="soundBtn" class="icon-btn" aria-label="Toggle sound">♪</button>
+        <button id="pauseBtn" class="icon-btn" aria-label="Pause game">Ⅱ</button>
+      </div>
+    </header>
+
+    <section id="hud" class="hud hidden" aria-live="polite">
+      <div class="hud-card"><span>SCORE</span><strong id="score">0</strong></div>
+      <div class="hud-card"><span>SPEED</span><strong><em id="speed">0</em> km/h</strong></div>
+      <div class="hud-card combo"><span>COMBO</span><strong id="combo">x1</strong></div>
+      <div class="hud-card"><span>BEST</span><strong id="best">0</strong></div>
+    </section>
+
+    <main id="menu" class="panel menu-panel">
+      <div class="eyebrow"><span></span> FRESH POWDER. NO LIMITS.</div>
+      <h1>OWN THE<br><i>MOUNTAIN.</i></h1>
+      <p>Carve endless alpine lines, launch huge tricks and outrun the avalanche.</p>
+      <div class="rider-select" aria-label="Choose your ride">
+        <button class="ride active" data-ride="ski"><span class="ride-icon">⛷</span><span><b>SKIS</b><small>Fast + precise</small></span></button>
+        <button class="ride" data-ride="board"><span class="ride-icon">🏂</span><span><b>SNOWBOARD</b><small>Big-air style</small></span></button>
+      </div>
+      <button id="playBtn" class="primary-btn">DROP IN <span>→</span></button>
+      <div class="controls-row">
+        <span><kbd>←</kbd><kbd>→</kbd> CARVE</span>
+        <span><kbd>SPACE</kbd> JUMP</span>
+        <span><kbd>A</kbd><kbd>D</kbd> TRICK</span>
+      </div>
+    </main>
+
+    <section id="pausePanel" class="panel small-panel hidden">
+      <div class="eyebrow"><span></span> TAKING A BREATHER</div>
+      <h2>PAUSED</h2>
+      <button id="resumeBtn" class="primary-btn">KEEP RIDING <span>→</span></button>
+      <button id="restartPauseBtn" class="ghost-btn">RESTART RUN</button>
+    </section>
+
+    <section id="gameOver" class="panel small-panel hidden">
+      <div class="eyebrow"><span></span> RUN COMPLETE</div>
+      <h2>WIPEOUT!</h2>
+      <div class="result-grid">
+        <div><span>SCORE</span><strong id="finalScore">0</strong></div>
+        <div><span>BEST COMBO</span><strong id="finalCombo">x1</strong></div>
+        <div><span>DISTANCE</span><strong id="finalDistance">0 m</strong></div>
+      </div>
+      <button id="restartBtn" class="primary-btn">RIDE AGAIN <span>↻</span></button>
+      <button id="menuBtn" class="ghost-btn">CHANGE RIDER</button>
+    </section>
+
+    <div id="message" class="message hidden"></div>
+    <div id="avalancheWarning" class="avalanche-warning hidden">⚠ AVALANCHE CLOSING IN — KEEP MOVING!</div>
+
+    <div id="mobileControls" class="mobile-controls hidden">
+      <button id="leftBtn" aria-label="Carve left">←</button>
+      <button id="jumpBtn" class="jump" aria-label="Jump">JUMP</button>
+      <button id="rightBtn" aria-label="Carve right">→</button>
+    </div>
+
+    <footer class="footer">SUMMIT RUSH <span>•</span> BUILT FOR THE WEB</footer>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
